@@ -1,5 +1,6 @@
 package org.launchcode.models;
 
+import javax.lang.model.element.Name;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,13 +19,15 @@ private String name;
 
 public class Category {
     //add public getter for id.
-    public void getId() {
-
+    public int getId() {
+        return id;
     }
     public void getName() {
+        return name;
 
     }
-    public void setName() {
+    public void setName(Name name) {
+        this.name = name;
 
     }
 
