@@ -1,6 +1,5 @@
 package org.launchcode.controllers;
 
-
 import org.launchcode.models.Cheese;
 import org.launchcode.models.Menu;
 import org.launchcode.models.data.CheeseDao;
@@ -22,9 +21,6 @@ public class MenuController {
 
     @Autowired
     private CheeseDao cheeseDao;
-
-    public MenuController() {
-    }
 
     @RequestMapping(value="")
     public String index(Model model) {
@@ -51,13 +47,13 @@ public class MenuController {
     }
     @RequestMapping(value = "view/{menuId}", method = RequestMethod.GET)
     public String viewMenu(Model model, @PathVariable int menuId) {
-        org.launchcode.models.Menu menu = menuDao.findOne(menuId);
+        Menu menu = menuDao.findOne(menuId);
         model.addAttribute("menu", menu);
         model.addAttribute("title", menu.getName());
         return "menu/view";
     }
 
-    @RequestMapping(value="add-item/{menuId", method = RequestMethod.GET)
+    @RequestMapping(value="add-item/{menuId}", method = RequestMethod.GET)
     public String addItem(Model model, @PathVariable int menuId) {
         Menu menu = menuDao.findOne(menuId);
 
